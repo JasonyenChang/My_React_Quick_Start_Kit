@@ -5,12 +5,12 @@ import { AppContainer } from 'react-hot-loader';
 
 const render = (Component) => {
     ReactDom.render(
-        <AppContainer>
-            <Component />
-        </AppContainer>,
+      <AppContainer>
+        <Component />
+      </AppContainer>,
         document.getElementById('app')
     );
-}
+};
 
 render(App);
 
