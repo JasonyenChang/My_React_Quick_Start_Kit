@@ -1,22 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import App from 'containers/App';
-import { AppContainer } from 'react-hot-loader';
+import { hot } from 'react-hot-loader';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-const render = (Component) => {
-    ReactDom.render(
-      <AppContainer>
-        <Component />
-      </AppContainer>,
-        document.getElementById('app')
-    );
-};
+const Main = () => (
+  <Router>
+    <Switch>
+      <Route path="/" exact component={App} />
+    </Switch>
+  </Router>
+);
 
-render(App);
-
-if (module.hot) {
-    module.hot.accept('containers/App', () => {
-        const NextApp = require('containers/App').default;
-        render(NextApp);
-    });
-}
+ReactDom.render(<Main />, document.getElementById('app'));
+hot(module)(Main);
