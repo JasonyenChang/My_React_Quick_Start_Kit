@@ -18,7 +18,8 @@ module.exports = {
         alias: {
             components: path.resolve(__dirname, 'src/components/'),
             containers: path.resolve(__dirname, 'src/containers/'),
-            loadables: path.resolve(__dirname, 'src/loadables/')
+            loadables: path.resolve(__dirname, 'src/loadables/'),
+            images: path.resolve(__dirname, 'src/images/')
         },
         extensions: [
             '.js',
@@ -35,6 +36,17 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 use: ['babel-loader'],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpg|gif|mp4|ogg|svg|woff|woff2|ttf|eot)$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.css$/,
+                use: [
+                  'style-loader',
+                  'css-loader'
+                ]
             }
         ]
     }

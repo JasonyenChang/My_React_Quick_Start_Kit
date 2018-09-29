@@ -8,7 +8,14 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <Styles.LoginButton onClick={this.goToApp}>Login</Styles.LoginButton>
+      <Styles.LoginBody>
+        <Styles.LoginContainer>
+          <Styles.LoginTitle>Log-in</Styles.LoginTitle>
+          <Styles.LoginInput placeholder="User name" />
+          <Styles.LoginInput placeholder="Password" type="password" />
+          <Styles.LoginButton type="primary" onClick={this.goToApp}>Login</Styles.LoginButton>
+        </Styles.LoginContainer>
+      </Styles.LoginBody>
     );
   }
 }
