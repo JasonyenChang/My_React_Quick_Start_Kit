@@ -1,10 +1,13 @@
 import React from 'react';
 import './app.css';
-import { Layout, Icon } from 'antd';
+import { Layout } from 'antd';
 import SideMenu from 'components/SideMenu/SideMenu';
+import { Switch, Route } from 'react-router-dom';
+import {
+  LoadableAboutMe, LoadablePortfolio
+} from 'loadables/common';
 import * as Styles from './style';
 
-const { Sider, Content } = Layout;
 export default class App extends React.Component {
   state = {
     collapsed: false
@@ -16,27 +19,35 @@ export default class App extends React.Component {
     });
   }
 
+  navigateToUrl = (url) => {
+    this.props.history.push(url);
+  }
+
   render() {
     return (
       <Styles.AppLayout>
-        <Sider
+        <Layout.Sider
           trigger={null}
           collapsible
           collapsed={this.state.collapsed}
         >
-          <SideMenu />
-        </Sider>
+          <Styles.MenuTitle />
+          <SideMenu navigate={this.navigateToUrl} />
+        </Layout.Sider>
         <Layout>
           <Styles.AppHeader>
-            <Icon
+            <Styles.MenuCursorIcon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
           </Styles.AppHeader>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
-            Content
-          </Content>
+          <Styles.MenuContent>
+            <Switch>
+              <Route default path="/app/about" component={LoadableAboutMe} />
+              <Route path="/app/portfolio" component={LoadablePortfolio} />
+            </Switch>
+          </Styles.MenuContent>
         </Layout>
       </Styles.AppLayout>
     );

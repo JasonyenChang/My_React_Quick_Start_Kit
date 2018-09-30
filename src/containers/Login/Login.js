@@ -3,7 +3,7 @@ import * as Styles from './style';
 
 export default class Login extends React.Component {
   goToApp = () => {
-    this.props.history.push('/app');
+    this.props.history.push('/app/about');
   }
 
   render() {

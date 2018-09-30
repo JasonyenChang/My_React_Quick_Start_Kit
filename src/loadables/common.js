@@ -13,3 +13,17 @@ export const LoadableApp = Loadable({
     return null;
   }
 });
+
+export const LoadableAboutMe = Loadable({
+  loader: () => import('containers/About/About'),
+  loading() {
+    return null;
+  }
+});
+
+export const LoadablePortfolio = Loadable({
+  loader: () => import('containers/Portfolio/Portfolio'),
+  loading() {
+    return null;
+  }
+});
