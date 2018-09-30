@@ -13,7 +13,8 @@ module.exports = {
         "import/prefer-default-export": [0],
         "react/destructuring-assignment": 0,
         "camelcase": 0,
-        "react/prop-types": [1, { "ignore": ["history"] }]
+        "react/prop-types": [1, { "ignore": ["history"] }],
+        "react/no-access-state-in-setstate": [0],
     },
     "env": {
         "browser": true,
