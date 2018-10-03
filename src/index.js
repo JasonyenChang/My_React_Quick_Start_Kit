@@ -2,21 +2,22 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { hot } from 'react-hot-loader';
 import {
-  BrowserRouter as Router, Route,
-  Switch, HashRouter
+  Route, Switch, HashRouter
 } from 'react-router-dom';
 import { LoadableLogin, LoadableApp } from 'loadables/common';
 import 'containers/app.css';
+import { Provider } from 'mobx-react';
+import translateStore from 'stores/translateStore';
 
 const Main = () => (
-  <Router>
+  <Provider translateStore={translateStore}>
     <HashRouter>
       <Switch>
         <Route path="/" exact component={LoadableLogin} />
         <Route path="/app" component={LoadableApp} />
       </Switch>
     </HashRouter>
-  </Router>
+  </Provider>
 );
 
 ReactDom.render(<Main />, document.getElementById('app'));

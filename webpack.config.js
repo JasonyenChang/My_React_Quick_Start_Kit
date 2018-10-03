@@ -19,7 +19,9 @@ module.exports = {
             components: path.resolve(__dirname, 'src/components/'),
             containers: path.resolve(__dirname, 'src/containers/'),
             loadables: path.resolve(__dirname, 'src/loadables/'),
-            images: path.resolve(__dirname, 'src/images/')
+            images: path.resolve(__dirname, 'src/images/'),
+            localization: path.resolve(__dirname, 'src/localization/'),
+            stores: path.resolve(__dirname, 'src/stores/')
         },
         extensions: [
             '.js',
