@@ -14,7 +14,6 @@ export const AppHeader = styled(Header)`
 `;
 
 export const AppHeaderContent = styled.div`
-  border: 1px solid yellow;
   float: right;
   display: flex;
   width: 300px;
@@ -22,7 +21,6 @@ export const AppHeaderContent = styled.div`
 `;
 
 export const AppHeaderContentName = styled.div`
-  border: 1px solid red;
   width: 140px;
   height: 64px;
   text-align: right;
@@ -30,19 +28,19 @@ export const AppHeaderContentName = styled.div`
 `;
 
 export const AppHeaderContentLanguage = styled.div`
-  border: 1px solid blue;
   width: 110px;
   height: 64px;
   text-align: right;
   padding-right: 10px;
 `;
 
-export const AppHeaderContentLogout = styled.div`
-  border: 1px solid white;
-  width: 50px;
-  height: 64px;
-  text-align: right;
-  padding-right: 10px;
+export const AppHeaderContentLogout = styled.img`
+  width: 32px;
+  height: 32px;
+  color: white;
+  margin-top: 15px;
+  margin-left: 10px;
+  cursor: pointer;
 `;
 
 export const MenuCursorIcon = styled(Icon)`

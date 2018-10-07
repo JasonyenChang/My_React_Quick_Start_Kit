@@ -1,4 +1,6 @@
 export const enUS = {
   ABOUT_ME: 'About me',
-  PORTFOLIO: 'Portfolio'
+  PORTFOLIO: 'Portfolio',
+  LOGOUT: 'Logout',
+  HI: 'Hi, '
 };

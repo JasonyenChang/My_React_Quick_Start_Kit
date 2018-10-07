@@ -9,6 +9,7 @@ import {
 } from 'loadables/common';
 import { inject, observer } from 'mobx-react';
 import * as Styles from './style';
+import logout_icon from 'images/logout_icon.png';
 
 const languageData = [
   { value: 'zhTW', text: '繁體中文' },
@@ -37,6 +38,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { translateObj } = this.props.translateStore;
     return (
       <Styles.AppLayout>
         <Layout.Sider
@@ -49,17 +51,17 @@ export default class App extends React.Component {
         </Layout.Sider>
         <Layout>
           <Styles.AppHeader>
-            <Styles.MenuCursorIcon
+            {/* <Styles.MenuCursorIcon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
-            />
+            /> */}
             <Styles.AppHeaderContent>
-              <Styles.AppHeaderContentName>Hi, Jason</Styles.AppHeaderContentName>
+              <Styles.AppHeaderContentName>{translateObj.HI}Jason</Styles.AppHeaderContentName>
               <Styles.AppHeaderContentLanguage>
                 <Selector selectorWidth={110} defaultValue="zhTW" optionList={languageData} onSelectChange={this.onLanguageChange} />
               </Styles.AppHeaderContentLanguage>
-              <Styles.AppHeaderContentLogout>Out</Styles.AppHeaderContentLogout>
+              <Styles.AppHeaderContentLogout src={logout_icon} title={translateObj.LOGOUT} />
             </Styles.AppHeaderContent>
           </Styles.AppHeader>
           <Styles.MenuContent>
