@@ -9,6 +9,7 @@ class TranslateStore {
 
   setLanguage = (lan) => {
     this.language = lan;
+    this.translateObj = (lan === 'zhTW' ? zhTW : enUS);
   }
 }
 

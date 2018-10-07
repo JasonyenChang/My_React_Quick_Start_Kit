@@ -2,12 +2,21 @@ import React from 'react';
 import './app.css';
 import { Layout } from 'antd';
 import SideMenu from 'components/SideMenu/SideMenu';
+import Selector from 'components/Selector/Selector';
 import { Switch, Route } from 'react-router-dom';
 import {
   LoadableAboutMe, LoadablePortfolio
 } from 'loadables/common';
+import { inject, observer } from 'mobx-react';
 import * as Styles from './style';
 
+const languageData = [
+  { value: 'zhTW', text: '繁體中文' },
+  { value: 'enUS', text: 'English' }
+];
+
+@inject('translateStore')
+@observer
 export default class App extends React.Component {
   state = {
     collapsed: false
@@ -21,6 +30,10 @@ export default class App extends React.Component {
 
   navigateToUrl = (url) => {
     this.props.history.push(url);
+  }
+
+  onLanguageChange = (language) => {
+    this.props.translateStore.setLanguage(language);
   }
 
   render() {
@@ -41,6 +54,13 @@ export default class App extends React.Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
+            <Styles.AppHeaderContent>
+              <Styles.AppHeaderContentName>Hi, Jason</Styles.AppHeaderContentName>
+              <Styles.AppHeaderContentLanguage>
+                <Selector selectorWidth={110} defaultValue="zhTW" optionList={languageData} onSelectChange={this.onLanguageChange} />
+              </Styles.AppHeaderContentLanguage>
+              <Styles.AppHeaderContentLogout>Out</Styles.AppHeaderContentLogout>
+            </Styles.AppHeaderContent>
           </Styles.AppHeader>
           <Styles.MenuContent>
             <Switch>

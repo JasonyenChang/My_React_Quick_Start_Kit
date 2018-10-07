@@ -1,11 +1,11 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
 import { inject, observer } from 'mobx-react';
-import translateStore from 'stores/translateStore';
 import * as Styles from './style';
 
 @inject('translateStore')
-export default class SideMenu extends React.PureComponent {
+@observer
+export default class SideMenu extends React.Component {
   render() {
     const { translateObj } = this.props.translateStore;
     return (
