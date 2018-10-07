@@ -45,6 +45,6 @@ export const LoginInput = styled(Input)`
 export const LoginButton = styled(Button)`
   &.ant-btn-primary {
     width: 200px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
 `;

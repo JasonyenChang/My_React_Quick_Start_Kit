@@ -3,13 +3,15 @@ import './app.css';
 import { Layout } from 'antd';
 import SideMenu from 'components/SideMenu/SideMenu';
 import Selector from 'components/Selector/Selector';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import {
   LoadableAboutMe, LoadablePortfolio
 } from 'loadables/common';
 import { inject, observer } from 'mobx-react';
 import * as Styles from './style';
 import logout_icon from 'images/logout_icon.png';
+import { logout, checkSession } from 'services/Auth';
+import { isAuthenticated } from '../services/Auth';
 
 const languageData = [
   { value: 'zhTW', text: '繁體中文' },
@@ -37,6 +39,13 @@ export default class App extends React.Component {
     this.props.translateStore.setLanguage(language);
   }
 
+  onLogout = () => {
+    logout();
+    if (!isAuthenticated()) {
+      this.props.history.push('/');
+    }
+  }
+
   render() {
     const { translateObj } = this.props.translateStore;
     return (
@@ -57,18 +66,22 @@ export default class App extends React.Component {
               onClick={this.toggle}
             /> */}
             <Styles.AppHeaderContent>
-              <Styles.AppHeaderContentName>{translateObj.HI}Jason</Styles.AppHeaderContentName>
+              <Styles.AppHeaderContentName>{translateObj.HI}{sessionStorage.getItem('UserName')}</Styles.AppHeaderContentName>
               <Styles.AppHeaderContentLanguage>
                 <Selector selectorWidth={110} defaultValue="zhTW" optionList={languageData} onSelectChange={this.onLanguageChange} />
               </Styles.AppHeaderContentLanguage>
-              <Styles.AppHeaderContentLogout src={logout_icon} title={translateObj.LOGOUT} />
+              <Styles.AppHeaderContentLogout src={logout_icon} title={translateObj.LOGOUT} onClick={this.onLogout} />
             </Styles.AppHeaderContent>
           </Styles.AppHeader>
           <Styles.MenuContent>
-            <Switch>
-              <Route default path="/app/about" component={LoadableAboutMe} />
-              <Route path="/app/portfolio" component={LoadablePortfolio} />
-            </Switch>
+            {
+              isAuthenticated() ? 
+              <Switch>
+                <Route default path="/app/about" component={LoadableAboutMe} />
+                <Route path="/app/portfolio" component={LoadablePortfolio} />
+              </Switch>
+              : <Redirect to="/" />
+            }
           </Styles.MenuContent>
         </Layout>
       </Styles.AppLayout>
