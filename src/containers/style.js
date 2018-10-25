@@ -16,12 +16,12 @@ export const AppHeader = styled(Header)`
 export const AppHeaderContent = styled.div`
   float: right;
   display: flex;
-  width: 300px;
+  width: auto;
   height: 64px;
 `;
 
 export const AppHeaderContentName = styled.div`
-  width: 140px;
+  width: auto;
   height: 64px;
   text-align: right;
   padding-right: 10px;
