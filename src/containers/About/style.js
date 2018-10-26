@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
 
 export const BottomContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 20px;
 `;
 
@@ -24,4 +24,8 @@ export const Description = styled.div`
   height: 200px;
   font-size: 24px;
   padding-left: 20px;
+`;
+
+export const Margin = styled.div`
+  height: 10px;
 `;

@@ -2,6 +2,7 @@ import React from 'react';
 import { inject } from 'mobx-react';
 import jason from 'images/my_photo.jpg';
 import Card from 'components/Card/Card';
+import CardTitle from 'components/CardTitle/CardTitle';
 import * as Styles from './style';
 
 @inject('translateStore')
@@ -11,6 +12,23 @@ export default class About extends React.Component {
     return <div>
             <p>{translateObj.MASTER}</p>
             <p>{translateObj.BACHELOR}</p>
+           </div>;
+  }
+
+  experience = () => {
+    const { translateObj } = this.props.translateStore;
+    return <div>
+            <p>{translateObj.EXPERIENCE_3}</p>
+            <p>{translateObj.EXPERIENCE_2}</p>
+            <p>{translateObj.EXPERIENCE_1}</p>
+           </div>;
+  }
+
+  skills = () => {
+    const { translateObj } = this.props.translateStore;
+    return <div>
+            <p>{translateObj.SKILLS_1}</p>
+            <p>{translateObj.SKILLS_2}</p>
            </div>;
   }
 
@@ -25,7 +43,17 @@ export default class About extends React.Component {
           </Styles.Description>
         </Styles.HeaderContainer>
         <Styles.BottomContainer>
+          <CardTitle title={translateObj.EDUCATION} />
+          <Styles.Margin />
           <Card content={this.getEducation()} />
+          <Styles.Margin /><Styles.Margin /><Styles.Margin />
+          <CardTitle title={translateObj.EXPERIENCE} />
+          <Styles.Margin />
+          <Card content={this.experience()} />
+          <Styles.Margin /><Styles.Margin /><Styles.Margin />
+          <CardTitle title={translateObj.SKILLS} />
+          <Styles.Margin />
+          <Card content={this.skills()} />
         </Styles.BottomContainer>
       </div>
     );

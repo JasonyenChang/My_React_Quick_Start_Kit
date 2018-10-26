@@ -53,6 +53,7 @@ export const MenuContent = styled(Content)`
   margin: 24px 16px;
   background: #F0F2F5;
   min-height: 280;
+  overflow-y: auto;
 `;
 
 export const MenuTitle = styled.div`
