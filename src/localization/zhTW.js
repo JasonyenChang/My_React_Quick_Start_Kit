@@ -1,6 +1,6 @@
 export const zhTW = {
   ABOUT_ME: '關於我',
-  PORTFOLIO: '作品',
+  PORTFOLIO: '範例集',
   LOGOUT: '登出',
   HI: '嗨，',
   DESCRIPTION: '您好，我是張俊彥，是一位程式設計師...',
@@ -15,5 +15,7 @@ export const zhTW = {
   SKILLS_1: '前端開發：ReactJS, CSS, HTML',
   SKILLS_2: '後端開發：Web API(C#)',
   MOTTO: '座右銘',
-  MOTTO_1: '勤能補拙'
+  MOTTO_1: '勤能補拙',
+  CONTACT: '聯絡方式',
+  CONTACT_1: '電子郵件: jasonyen2008@gmail.com'
 };

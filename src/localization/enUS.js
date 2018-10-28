@@ -15,5 +15,7 @@ export const enUS = {
   SKILLS_1: 'Frontend development：ReactJS, CSS, HTML',
   SKILLS_2: 'Backend development：Web API(C#)',
   MOTTO: 'Motto',
-  MOTTO_1: 'Practice makes perfect'
+  MOTTO_1: 'Practice makes perfect',
+  CONTACT: 'Contact',
+  CONTACT_1: 'Email-Address: jasonyen2008@gmail.com'
 };
