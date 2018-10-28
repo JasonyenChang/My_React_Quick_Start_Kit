@@ -32,6 +32,13 @@ export default class About extends React.Component {
            </div>;
   }
 
+  motto = () => {
+    const { translateObj } = this.props.translateStore;
+    return <div>
+            <p>{translateObj.MOTTO_1}</p>
+           </div>;
+  }
+
   render() {
     const { translateObj } = this.props.translateStore;
     return (
@@ -54,6 +61,10 @@ export default class About extends React.Component {
           <CardTitle title={translateObj.SKILLS} />
           <Styles.Margin />
           <Card content={this.skills()} />
+          <Styles.Margin /><Styles.Margin /><Styles.Margin />
+          <CardTitle title={translateObj.MOTTO} />
+          <Styles.Margin />
+          <Card content={this.motto()} />
         </Styles.BottomContainer>
       </div>
     );

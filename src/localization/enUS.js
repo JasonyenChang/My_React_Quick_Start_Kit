@@ -10,8 +10,10 @@ export const enUS = {
   EXPERIENCE: 'Experience',
   EXPERIENCE_1: 'Assistant Engineer, FUTABA. 2010/7 - 2011/10',
   EXPERIENCE_2: 'Assistant Engineer, NKUHT. 2011/10 - 2015/10',
-  EXPERIENCE_3: 'Senior Engineer, Wistron. 2015/10 - Present',
+  EXPERIENCE_3: 'Engineer, Wistron. 2015/10 - Present',
   SKILLS: 'Skills',
   SKILLS_1: 'Frontend development：ReactJS, CSS, HTML',
-  SKILLS_2: 'Backend development：Web API(C#)'
+  SKILLS_2: 'Backend development：Web API(C#)',
+  MOTTO: 'Motto',
+  MOTTO_1: 'Practice makes perfect'
 };
