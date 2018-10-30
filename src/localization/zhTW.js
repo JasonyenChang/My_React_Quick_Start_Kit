@@ -17,5 +17,6 @@ export const zhTW = {
   MOTTO: '座右銘',
   MOTTO_1: '勤能補拙',
   CONTACT: '聯絡方式',
-  CONTACT_1: '電子郵件: jasonyen2008@gmail.com'
+  CONTACT_1: '電子郵件: jasonyen2008@gmail.com',
+  BADGE: '徽章'
 };
