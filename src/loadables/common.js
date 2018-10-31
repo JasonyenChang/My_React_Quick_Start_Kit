@@ -27,3 +27,10 @@ export const LoadablePortfolio = Loadable({
     return null;
   }
 });
+
+export const LoadableBadge = Loadable({
+  loader: () => import('containers/Portfolio/Badge/Badge'),
+  loading() {
+    return null;
+  }
+});
