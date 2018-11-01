@@ -7,7 +7,7 @@ export default class BadgeIcon extends React.PureComponent {
     return (
       <Styles.Container>
         <Styles.Photo src={photo} />
-        <Styles.Number>{number}</Styles.Number>
+        <Styles.Number className="badgeNumber">{number}</Styles.Number>
       </Styles.Container>
     );
   }
