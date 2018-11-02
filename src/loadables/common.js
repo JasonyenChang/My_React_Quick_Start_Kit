@@ -34,3 +34,10 @@ export const LoadableBadge = Loadable({
     return null;
   }
 });
+
+export const LoadableCard = Loadable({
+  loader: () => import('containers/Portfolio/Card/Card'),
+  loading() {
+    return null;
+  }
+});

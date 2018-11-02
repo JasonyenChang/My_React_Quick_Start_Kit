@@ -18,5 +18,8 @@ export const enUS = {
   MOTTO_1: 'Practice makes perfect',
   CONTACT: 'Contact',
   CONTACT_1: 'Email-Address: jasonyen2008@gmail.com',
-  BADGE: 'Badge'
+  BADGE: 'Badge',
+  CARD: 'Card',
+  BUY: 'Buy it',
+  RECOMMAND: 'Recommand'
 };

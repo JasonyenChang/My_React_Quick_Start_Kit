@@ -18,5 +18,8 @@ export const zhTW = {
   MOTTO_1: '勤能補拙',
   CONTACT: '聯絡方式',
   CONTACT_1: '電子郵件: jasonyen2008@gmail.com',
-  BADGE: '徽章'
+  BADGE: '徽章',
+  CARD: '卡片',
+  BUY: '放入購物車',
+  RECOMMAND: '阿彥推薦'
 };

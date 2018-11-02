@@ -22,7 +22,8 @@ module.exports = {
             images: path.resolve(__dirname, 'src/images/'),
             localization: path.resolve(__dirname, 'src/localization/'),
             stores: path.resolve(__dirname, 'src/stores/'),
-            services: path.resolve(__dirname, 'src/services')
+            services: path.resolve(__dirname, 'src/services'),
+            utils: path.resolve(__dirname, 'src/utils')
         },
         extensions: [
             '.js',

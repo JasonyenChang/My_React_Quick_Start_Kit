@@ -20,6 +20,7 @@ export default class SideMenu extends React.Component {
           title={<span><Icon type="video-camera" /><span>{translateObj.PORTFOLIO}</span></span>}
         >
           <Menu.Item key="2" onClick={() => this.props.navigate('/app/badge')}>{translateObj.BADGE}</Menu.Item>
+          <Menu.Item key="3" onClick={() => this.props.navigate('/app/card')}>{translateObj.CARD}</Menu.Item>
         </SubMenu>
       </Menu>
     );
