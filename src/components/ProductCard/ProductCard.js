@@ -6,7 +6,7 @@ import * as Styles from './style';
 
 @inject('translateStore')
 @observer
-export default class ProductCard extends React.PureComponent {
+export default class ProductCard extends React.Component {
   render() {
     const { translateObj } = this.props.translateStore;
     const { title, prize, image, recommand, name } = this.props;
