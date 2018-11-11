@@ -15,7 +15,9 @@
   "author": "Jason Chang",
   "license": "ISC",
   "dependencies": {
+    "@antv/data-set": "^0.10.1",
     "antd": "^3.9.3",
+    "bizcharts": "^3.2.5-beta.4",
     "mobx": "^5.5.0",
     "mobx-react": "^5.2.8",
     "react": "^16.5.1",

@@ -21,5 +21,7 @@ export const enUS = {
   BADGE: 'Badge',
   CARD: 'Card',
   BUY: 'Buy it',
-  RECOMMAND: 'Recommand'
+  RECOMMAND: 'Recommand',
+  RING_CHART: 'Ring Chart',
+  MIX_CHART: 'Mix Chart'
 };

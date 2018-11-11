@@ -21,5 +21,7 @@ export const zhTW = {
   BADGE: '徽章',
   CARD: '卡片',
   BUY: '放入購物車',
-  RECOMMAND: '阿彥推薦'
+  RECOMMAND: '阿彥推薦',
+  RING_CHART: '環圖',
+  MIX_CHART: '綜合線圖'
 };

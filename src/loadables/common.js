@@ -41,3 +41,10 @@ export const LoadableCard = Loadable({
     return null;
   }
 });
+
+export const LoadableRing = Loadable({
+  loader: () => import('containers/Portfolio/Ring/Ring'),
+  loading() {
+    return null;
+  }
+});
