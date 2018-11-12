@@ -48,3 +48,10 @@ export const LoadableRing = Loadable({
     return null;
   }
 });
+
+export const LoadableMixChart = Loadable({
+  loader: () => import('containers/Portfolio/MixChart/MixChart'),
+  loading() {
+    return null;
+  }
+});

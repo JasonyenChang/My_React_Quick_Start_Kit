@@ -5,7 +5,8 @@ import SideMenu from 'components/SideMenu/SideMenu';
 import Selector from 'components/Selector/Selector';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import {
-  LoadableAboutMe, LoadablePortfolio, LoadableBadge, LoadableCard, LoadableRing
+  LoadableAboutMe, LoadablePortfolio, LoadableBadge, LoadableCard, LoadableRing,
+  LoadableMixChart
 } from 'loadables/common';
 import { inject, observer } from 'mobx-react';
 import * as Styles from './style';
@@ -82,6 +83,7 @@ export default class App extends React.Component {
                 <Route path="/app/badge" component={LoadableBadge} />
                 <Route path="/app/card" component={LoadableCard} />
                 <Route path="/app/ringchart" component={LoadableRing} />
+                <Route path="/app/mixchart" component={LoadableMixChart} />
               </Switch>
               : <Redirect to="/" />
             }
