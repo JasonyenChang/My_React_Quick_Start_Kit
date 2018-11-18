@@ -13,7 +13,7 @@ class Login extends React.Component {
           UserName: values.userName,
           AccessToken: 'xxxxoooo'
         };
-        sessionStorage.clear();
+        // sessionStorage.clear();
         sessionStorage.setItem('User', JSON.stringify(user));
         this.props.history.push('/app/about');
       }

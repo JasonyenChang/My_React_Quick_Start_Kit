@@ -30,7 +30,7 @@ export default class App extends React.Component {
     pageSync();
     setTimeout(() => {
       const user = JSON.parse(sessionStorage.getItem('User'));
-      this.setState({ userName: user.UserName })
+      this.setState({ userName: user.UserName });
     }, 500);
   }
 
