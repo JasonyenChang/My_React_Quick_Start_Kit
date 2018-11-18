@@ -8,6 +8,7 @@ import { LoadableLogin, LoadableApp } from 'loadables/common';
 import 'containers/app.css';
 import { Provider } from 'mobx-react';
 import translateStore from 'stores/translateStore';
+// import 'utils/tabsSync';
 
 const Main = () => (
   <Provider translateStore={translateStore}>

@@ -9,8 +9,12 @@ class Login extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        sessionStorage.setItem('UserName', values.userName);
-        sessionStorage.setItem('AccessToken', 'xxxxoooo');
+        const user = {
+          UserName: values.userName,
+          AccessToken: 'xxxxoooo'
+        };
+        sessionStorage.clear();
+        sessionStorage.setItem('User', JSON.stringify(user));
         this.props.history.push('/app/about');
       }
     });

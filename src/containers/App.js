@@ -11,8 +11,7 @@ import {
 import { inject, observer } from 'mobx-react';
 import * as Styles from './style';
 import logout_icon from 'images/logout_icon.png';
-import { logout, checkSession } from 'services/Auth';
-import { isAuthenticated } from '../services/Auth';
+import { pageSync, logout } from 'services/Auth';
 
 const languageData = [
   { value: 'zhTW', text: '繁體中文' },
@@ -23,8 +22,17 @@ const languageData = [
 @observer
 export default class App extends React.Component {
   state = {
-    collapsed: false
+    collapsed: false,
+    userName: ''
   };
+
+  componentDidMount = () => {
+    pageSync();
+    setTimeout(() => {
+      const user = JSON.parse(sessionStorage.getItem('User'));
+      this.setState({ userName: user.UserName })
+    }, 500);
+  }
 
   toggle = () => {
     this.setState({
@@ -40,15 +48,9 @@ export default class App extends React.Component {
     this.props.translateStore.setLanguage(language);
   }
 
-  onLogout = () => {
-    logout();
-    if (!isAuthenticated()) {
-      this.props.history.push('/');
-    }
-  }
-
   render() {
     const { translateObj } = this.props.translateStore;
+    const { userName } = this.state;
     return (
       <Styles.AppLayout>
         <Layout.Sider
@@ -67,26 +69,22 @@ export default class App extends React.Component {
               onClick={this.toggle}
             /> */}
             <Styles.AppHeaderContent>
-              <Styles.AppHeaderContentName>{translateObj.HI}{sessionStorage.getItem('UserName')}</Styles.AppHeaderContentName>
+              <Styles.AppHeaderContentName>{translateObj.HI}{userName}</Styles.AppHeaderContentName>
               <Styles.AppHeaderContentLanguage>
                 <Selector selectorWidth={110} defaultValue="zhTW" optionList={languageData} onSelectChange={this.onLanguageChange} />
               </Styles.AppHeaderContentLanguage>
-              <Styles.AppHeaderContentLogout src={logout_icon} title={translateObj.LOGOUT} onClick={this.onLogout} />
+              <Styles.AppHeaderContentLogout src={logout_icon} title={translateObj.LOGOUT} onClick={logout} />
             </Styles.AppHeaderContent>
           </Styles.AppHeader>
           <Styles.MenuContent>
-            {
-              isAuthenticated() ? 
-              <Switch>
-                <Route default path="/app/about" component={LoadableAboutMe} />
-                <Route path="/app/portfolio" component={LoadablePortfolio} />
-                <Route path="/app/badge" component={LoadableBadge} />
-                <Route path="/app/card" component={LoadableCard} />
-                <Route path="/app/ringchart" component={LoadableRing} />
-                <Route path="/app/mixchart" component={LoadableMixChart} />
-              </Switch>
-              : <Redirect to="/" />
-            }
+            <Switch>
+              <Route default path="/app/about" component={LoadableAboutMe} />
+              <Route path="/app/portfolio" component={LoadablePortfolio} />
+              <Route path="/app/badge" component={LoadableBadge} />
+              <Route path="/app/card" component={LoadableCard} />
+              <Route path="/app/ringchart" component={LoadableRing} />
+              <Route path="/app/mixchart" component={LoadableMixChart} />
+            </Switch>
           </Styles.MenuContent>
         </Layout>
       </Styles.AppLayout>
