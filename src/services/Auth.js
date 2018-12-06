@@ -28,7 +28,11 @@ export const logout = () => {
   window.removeEventListener('storage', storageEvent);
   localStorage.setItem('logout', 'logout');
   sessionStorage.clear();
-  window.location.href = '/';
+  if (window.location.hostname === 'localhost') {
+    window.location.href = '/';
+  } else {
+    window.location.href = 'https://jasonyenchang.github.io/My_React_Quick_Start_Kit/#/login';
+  }
 };
 
 export const pageSync = () => {

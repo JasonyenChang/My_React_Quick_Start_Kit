@@ -10,7 +10,7 @@ export const zhTW = {
   EXPERIENCE: '經歷',
   EXPERIENCE_1: '台灣雙葉電子 助理工程師 2010/7 - 2011/10',
   EXPERIENCE_2: '高雄餐旅大學 助理工程師 2011/10 - 2015/10',
-  EXPERIENCE_3: '緯創資通 工程師 2015/10 - 仍在職',
+  EXPERIENCE_3: '緯創資通 高級工程師 2015/10 - 仍在職',
   SKILLS: '專長',
   SKILLS_1: '前端開發：ReactJS, CSS, HTML',
   SKILLS_2: '後端開發：Web API(C#)',

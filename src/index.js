@@ -15,6 +15,7 @@ const Main = () => (
     <HashRouter>
       <Switch>
         <Route path="/" exact component={LoadableLogin} />
+        <Route path="/login" component={LoadableLogin} />
         <Route path="/app" component={LoadableApp} />
       </Switch>
     </HashRouter>
