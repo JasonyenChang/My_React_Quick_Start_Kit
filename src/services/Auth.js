@@ -24,10 +24,7 @@ const storageEvent = (e) => {
   }
 };
 
-export const logout = () => {
-  window.removeEventListener('storage', storageEvent);
-  localStorage.setItem('logout', 'logout');
-  sessionStorage.clear();
+const redirectToLogin = () => {
   if (window.location.hostname === 'localhost') {
     window.location.href = '/';
   } else {
@@ -35,12 +32,19 @@ export const logout = () => {
   }
 };
 
+export const logout = () => {
+  window.removeEventListener('storage', storageEvent);
+  localStorage.setItem('logout', 'logout');
+  sessionStorage.clear();
+  redirectToLogin();
+};
+
 export const pageSync = () => {
   window.addEventListener('storage', storageEvent);
   localStorage.getSessionStorage = new Date();
   setTimeout(() => {
     if (!sessionStorage.getItem('User')) {
-      window.location.href = '/';
+      redirectToLogin();
     }
   }, 500);
 };
