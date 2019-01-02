@@ -12,7 +12,7 @@ import {
   Guide,
   Shape,
   Facet,
-  Util
+  Util,
 } from 'bizcharts';
 import DataSet from '@antv/data-set';
 
@@ -175,7 +175,9 @@ export default class LineStackBarChart extends React.PureComponent {
             color="#fdae6b"
             size={3}
             shape="circle"
-          />
+          >
+            <Label content="cost" />
+          </Geom>
         </Chart>
       </div>
     );
