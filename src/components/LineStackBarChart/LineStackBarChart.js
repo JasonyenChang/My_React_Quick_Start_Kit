@@ -127,6 +127,12 @@ export default class LineStackBarChart extends React.PureComponent {
         value: 7268,
         cost: 10,
       },
+      {
+        country: "Australia",
+        year: "2100",
+        value: 6500,
+        cost: 1,
+      },
     ];
     const ds = new DataSet();
     const dv = ds
@@ -142,18 +148,31 @@ export default class LineStackBarChart extends React.PureComponent {
         // 以不同产品类别为分组
         as: "percent"
       });
-    const cols = {
-      percent: {
-        min: 0,
+    // const cols = {
+    //   percent: {
+    //     min: 0,
 
-        formatter(val) {
-          return (val * 100).toFixed(2) + "%";
-        }
-      }
+    //     formatter(val) {
+    //       return (val * 100).toFixed(2) + "%";
+    //     }
+    //   }
+    // };
+    const scale = {
+      value: {
+        type: 'linear',
+        min: 0,
+        tickCount: 6,
+        formatter: (value) => `${value.toLocaleString('en-US')}`,
+      },
+      cost: {
+        type: 'linear',
+        min: 0,
+        tickCount: 6,
+      },
     };
     return (
       <div>
-        <Chart height={400} data={data} padding={[10, 40, 70, 50]} forceFit>
+        <Chart height={400} data={data} padding={[10, 40, 70, 50]} scale={scale} forceFit>
           <Legend />
           <Axis name="year" />
           <Axis name="value" />

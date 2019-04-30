@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject } from 'mobx-react';
-import jason from 'images/my_photo.jpg';
+import jason from 'images/blackman.png';
 import Card from 'components/Card/Card';
 import CardTitle from 'components/CardTitle/CardTitle';
 import * as Styles from './style';
