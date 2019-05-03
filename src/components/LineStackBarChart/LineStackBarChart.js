@@ -30,38 +30,15 @@ export default class LineStackBarChart extends React.PureComponent {
   });
 
   render() {
-    const { runData } = this.props;
-    const ds = new DataSet();
-    const dv = ds
-      .createView()
-      .source(runData)
-      .transform({
-        type: "percent",
-        field: "value",
-        // 统计销量
-        dimension: "country",
-        // 每年的占比
-        groupBy: ["year"],
-        // 以不同产品类别为分组
-        as: "percent"
-      });
-    // const cols = {
-    //   percent: {
-    //     min: 0,
-
-    //     formatter(val) {
-    //       return (val * 100).toFixed(2) + "%";
-    //     }
-    //   }
-    // };
+    const { runData, lineKey, xKey, yKey, legendKey } = this.props;
     const scale = {
-      value: {
+      yKey: {
         type: 'linear',
         min: 0,
         tickCount: 6,
         formatter: (value) => `${value.toLocaleString('en-US')}`,
       },
-      cost: {
+      lineKey: {
         type: 'linear',
         min: 0,
         tickCount: 6,
@@ -75,8 +52,8 @@ export default class LineStackBarChart extends React.PureComponent {
       <div>
         <Chart height={400} data={runData} padding={[10, 40, 70, 50]} scale={scale} forceFit>
         <Legend />
-          <Axis name="year" />
-          <Axis name="value" />
+          <Axis name={xKey} />
+          <Axis name={yKey} />
           <Tooltip
             containerTpl='<div class="g2-tooltip"><p class="g2-tooltip-title"></p><table class="g2-tooltip-list"></table></div>'
             itemTpl={itemTpl}
@@ -99,24 +76,24 @@ export default class LineStackBarChart extends React.PureComponent {
           />
           <Geom
             type="intervalStack"
-            position="year*value"
-            color={"country"}
+            position={`${xKey}*${yKey}`}
+            color={legendKey}
           />
           <Geom
             type="line"
-            position="year*cost"
+            position={`${xKey}*${lineKey}`}
             color="#fdae6b"
             size={3}
             shape="smooth"
           />
           <Geom
             type="point"
-            position="year*cost"
+            position={`${xKey}*${lineKey}`}
             color="#fdae6b"
             size={3}
             shape="circle"
           >
-            <Label content="cost" />
+            <Label content={lineKey} />
           </Geom>
         </Chart>
       </div>

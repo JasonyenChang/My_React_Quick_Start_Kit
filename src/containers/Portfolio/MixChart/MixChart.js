@@ -19,7 +19,7 @@ export default class MixChart extends React.Component {
         <br />
         <LineBarChart barData={bar.data} />
         <br />
-        <LineStackBarChart runData={run.data} />
+        <LineStackBarChart runData={run.data} lineKey="costs" xKey="year" yKey="values" legendKey="country" />
       </div>
     );
   }
