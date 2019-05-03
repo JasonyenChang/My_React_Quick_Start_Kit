@@ -30,114 +30,11 @@ export default class LineStackBarChart extends React.PureComponent {
   });
 
   render() {
-    const data = [
-      {
-        country: "Europe",
-        year: "1750",
-        value: 163,
-        cost: 95,
-      },
-      {
-        country: "Europe",
-        year: "1800",
-        value: 203,
-        cost: 90,
-      },
-      {
-        country: "Europe",
-        year: "1850",
-        value: 276,
-        cost: 80,
-      },
-      {
-        country: "Europe",
-        year: "1900",
-        value: 408,
-        cost: 70,
-      },
-      {
-        country: "Europe",
-        year: "1950",
-        value: 547,
-        cost: 60,
-      },
-      {
-        country: "Europe",
-        year: "1999",
-        value: 729,
-        cost: 50,
-      },
-      {
-        country: "Europe",
-        year: "2050",
-        value: 628,
-        cost: 40,
-      },
-      {
-        country: "Europe",
-        year: "2100",
-        value: 828,
-        cost: 10,
-      },
-      {
-        country: "Asia",
-        year: "1750",
-        value: 95,
-        cost: 95
-      },
-      {
-        country: "Asia",
-        year: "1800",
-        value: 635,
-        cost: 90,
-      },
-      {
-        country: "Asia",
-        year: "1850",
-        value: 809,
-        cost: 80,
-      },
-      {
-        country: "Asia",
-        year: "1900",
-        value: 947,
-        cost: 70,
-      },
-      {
-        country: "Asia",
-        year: "1950",
-        value: 1402,
-        cost: 60,
-      },
-      {
-        country: "Asia",
-        year: "1999",
-        value: 3634,
-        cost: 50,
-      },
-      {
-        country: "Asia",
-        year: "2050",
-        value: 5268,
-        cost: 40,
-      },
-      {
-        country: "Asia",
-        year: "2100",
-        value: 7268,
-        cost: 10,
-      },
-      {
-        country: "Australia",
-        year: "2100",
-        value: 6500,
-        cost: 1,
-      },
-    ];
+    const { runData } = this.props;
     const ds = new DataSet();
     const dv = ds
       .createView()
-      .source(data)
+      .source(runData)
       .transform({
         type: "percent",
         field: "value",
@@ -170,12 +67,36 @@ export default class LineStackBarChart extends React.PureComponent {
         tickCount: 6,
       },
     };
+    const itemTpl = '<li data-index={index}>'
+      + '<span style="background-color:{color};width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px;"></span>'
+      + '{name}: {value}'
+      + '</li>';
     return (
       <div>
-        <Chart height={400} data={data} padding={[10, 40, 70, 50]} scale={scale} forceFit>
-          <Legend />
+        <Chart height={400} data={runData} padding={[10, 40, 70, 50]} scale={scale} forceFit>
+        <Legend />
           <Axis name="year" />
           <Axis name="value" />
+          <Tooltip
+            containerTpl='<div class="g2-tooltip"><p class="g2-tooltip-title"></p><table class="g2-tooltip-list"></table></div>'
+            itemTpl={itemTpl}
+            offset={50}
+            showTitle={false}
+            shared={false}
+            g2-tooltip={{
+              position: 'absolute',
+              visibility: 'hidden',
+              border: '1px solid #efefef',
+              backgroundColor: 'white',
+              color: '#000',
+              opacity: '0.8',
+              padding: '5px 15px',
+              width: '180px'
+            }}
+            g2-tooltip-list={{
+              margin: '10px'
+            }}
+          />
           <Geom
             type="intervalStack"
             position="year*value"
