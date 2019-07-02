@@ -63,11 +63,11 @@ export default class App extends React.Component {
         </Layout.Sider>
         <Layout>
           <Styles.AppHeader>
-            {/* <Styles.MenuCursorIcon
+            <Styles.MenuCursorIcon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
-            /> */}
+            />
             <Styles.AppHeaderContent>
               <Styles.AppHeaderContentName>{translateObj.HI}{userName}</Styles.AppHeaderContentName>
               <Styles.AppHeaderContentLanguage>
