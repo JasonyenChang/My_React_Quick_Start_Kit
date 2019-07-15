@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest --config=jest.config.json --coverage",
     "test:f": "jest --config=jest.config.json",
-    "server": "webpack-dev-server --mode development --open --hot --config webpack.config.js",
+    "start": "webpack-dev-server --mode development --open --hot --config webpack.config.js",
     "lint": "eslint ./src",
     "clean": "rimraf dist/*",
     "dist": "npm run clean && webpack --progress --bail --env dist -p",
