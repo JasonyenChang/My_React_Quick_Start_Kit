@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "simple react start kit for development",
   "main": "src/index.js",
-  "engines": {
-    "node": "12.1.0",
-    "npm": "6.9.0"
-  },
   "scripts": {
     "test": "jest --config=jest.config.json --coverage",
     "test:f": "jest --config=jest.config.json",
