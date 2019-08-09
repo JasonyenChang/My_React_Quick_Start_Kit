@@ -45,6 +45,7 @@ class Login extends React.Component {
               <Styles.LoginButton type="primary" htmlType="submit">Login</Styles.LoginButton>
             </FormItem>
           </Form>
+          <iframe src="http://192.168.16.42:3000/patient/0000453579/risk/92D5C376DB641B88A74C85303A88B9EE?c_id=1&m_id=2" width="200" height="200"></iframe>
         </Styles.LoginContainer>
       </Styles.LoginBody>
     );
