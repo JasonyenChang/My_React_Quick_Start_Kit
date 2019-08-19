@@ -1,11 +1,21 @@
 import React from 'react';
 import { Form, Icon, Input } from 'antd';
+import {
+  getUsers,
+} from 'services/API';
 import * as Styles from './style';
 
 const FormItem = Form.Item;
 
 class Login extends React.Component {
+  componentDidMount = async () => {
+    const users = await getUsers();
+    console.log('USERS', users.data);
+  }
+
   handleSubmit = (e) => {
+    // const users = await getUsers();
+    // console.log('USERS', users);
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {

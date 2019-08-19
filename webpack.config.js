@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'inline-source-map',
+    entry: ['babel-polyfill', './src/index.js'],
     devServer: {
         contentBase: './dist',
         historyApiFallback: true,
