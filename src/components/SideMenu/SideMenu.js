@@ -10,7 +10,7 @@ export default class SideMenu extends React.Component {
   render() {
     const { translateObj } = this.props.translateStore;
     return (
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+      <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} inlineCollapsed={this.props.collapsed}>
         <Styles.MenuItem key="1" onClick={() => this.props.navigate('/app/about')}>
           <Icon type="user" />
           <span>{translateObj.ABOUT_ME}</span>
