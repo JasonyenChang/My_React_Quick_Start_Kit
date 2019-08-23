@@ -59,7 +59,7 @@ export default class App extends React.Component {
           collapsed={this.state.collapsed}
         >
           <Styles.MenuTitle />
-          <SideMenu navigate={this.navigateToUrl} />
+          <SideMenu navigate={this.navigateToUrl} collapsed ={this.state.collapsed} />
         </Layout.Sider>
         <Layout>
           <Styles.AppHeader>
