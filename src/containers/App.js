@@ -12,6 +12,8 @@ import { inject, observer } from 'mobx-react';
 import * as Styles from './style';
 import logout_icon from 'images/logout_icon.png';
 import { pageSync, logout } from 'services/Auth';
+import env from 'utils/env';
+import ReactGA from 'react-ga';
 
 const languageData = [
   { value: 'zhTW', text: '繁體中文' },
@@ -28,10 +30,18 @@ export default class App extends React.Component {
 
   componentDidMount = () => {
     pageSync();
+    if (env.ENABLE_GA) this.initialGA();
     setTimeout(() => {
       const user = JSON.parse(sessionStorage.getItem('User'));
       this.setState({ userName: user.UserName });
     }, 500);
+  }
+
+  initialGA = () => {
+    const { history, location } = this.props;
+    ReactGA.initialize(env.GA_ID, { debug: true });
+    ReactGA.pageview(location.pathname);
+    history.listen(l => ReactGA.pageview(l.pathname));
   }
 
   toggle = () => {
