@@ -23,5 +23,6 @@ export const zhTW = {
   BUY: '放入購物車',
   RECOMMAND: '阿彥推薦',
   RING_CHART: '環圖',
-  MIX_CHART: '綜合線圖'
+  MIX_CHART: '綜合線圖',
+  ANALYTICS: 'Google分析'
 };

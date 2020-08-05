@@ -55,3 +55,10 @@ export const LoadableMixChart = Loadable({
     return null;
   }
 });
+
+export const LoadableAnalytics = Loadable({
+  loader: () => import('containers/Analytics/Analytics'),
+  loading() {
+    return null;
+  }
+});

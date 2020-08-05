@@ -24,6 +24,10 @@ export default class SideMenu extends React.Component {
           <Menu.Item key="4" onClick={() => this.props.navigate('/app/ringchart')}>{translateObj.RING_CHART}</Menu.Item>
           <Menu.Item key="5" onClick={() => this.props.navigate('/app/mixchart')}>{translateObj.MIX_CHART}</Menu.Item>
         </SubMenu>
+        <Styles.MenuItem key="6" onClick={() => this.props.navigate('/app/analytics')}>
+          <Icon type="user" />
+          <span>{translateObj.ANALYTICS}</span>
+        </Styles.MenuItem>
       </Menu>
     );
   }

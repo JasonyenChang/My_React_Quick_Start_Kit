@@ -23,5 +23,6 @@ export const enUS = {
   BUY: 'Buy it',
   RECOMMAND: 'Recommand',
   RING_CHART: 'Ring Chart',
-  MIX_CHART: 'Mix Chart'
+  MIX_CHART: 'Mix Chart',
+  ANALYTICS: 'Analytics'
 };

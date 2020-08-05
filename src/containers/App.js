@@ -6,7 +6,7 @@ import Selector from 'components/Selector/Selector';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import {
   LoadableAboutMe, LoadablePortfolio, LoadableBadge, LoadableCard, LoadableRing,
-  LoadableMixChart
+  LoadableMixChart, LoadableAnalytics
 } from 'loadables/common';
 import { inject, observer } from 'mobx-react';
 import * as Styles from './style';
@@ -94,6 +94,7 @@ export default class App extends React.Component {
               <Route path="/app/card" component={LoadableCard} />
               <Route path="/app/ringchart" component={LoadableRing} />
               <Route path="/app/mixchart" component={LoadableMixChart} />
+              <Route path="/app/analytics" component={LoadableAnalytics} />
             </Switch>
           </Styles.MenuContent>
         </Layout>

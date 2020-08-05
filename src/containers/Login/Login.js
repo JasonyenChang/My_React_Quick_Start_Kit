@@ -13,7 +13,7 @@ class Login extends React.Component {
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
         // const users = await getUsers();
-        // console.log('USERS', users.data);
+        // console.log('USERS', users);
         const user = {
           UserName: values.userName,
           AccessToken: 'xxxxoooo'
